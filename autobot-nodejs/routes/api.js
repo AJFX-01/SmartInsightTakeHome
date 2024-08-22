@@ -2,11 +2,10 @@ import express from 'express';
 import Autobot from '../models/Autobot.js';
 import Post from '../models/Post.js';
 import Comment from '../models/Comment.js';
+import expressRateLimit from 'express-rate-limit';
 
 const router = express.Router();
 
-// Rate Limiting Middleware
-import expressRateLimit from 'express-rate-limit';
 const apiLimiter = expressRateLimit({
   windowMs: 60 * 1000, // 1 minute
   max: 5,
