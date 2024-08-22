@@ -2,8 +2,8 @@
     <div>
         <h1>
             <ul>
-                <li>
-
+                <li v-for="autobot in autobots" :key="autobot.id">
+                    {{ autobot.name }} ({{ autobot.username }})
                 </li>
             </ul>
         </h1>
@@ -15,7 +15,9 @@ import api from '../api/axios';
 
 export default {
     data() {
-
+        return {
+            autobots: [],
+        }
     },
     created() {
         this.fetchAutobots();
