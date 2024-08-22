@@ -4,7 +4,7 @@ import Post from '../models/Post.js';
 import Comment from '../models/Comment.js';
 import { v4 as uuidv4 } from 'uuid';
 
-const BATCH_SIZE = 100; // based on server's capacity
+const BATCH_SIZE = 100; // Adjust based on your server's capacity
 
 const createAutobotsBatch = async (batchSize) => {
   const userResponse = await axios.get('https://jsonplaceholder.typicode.com/users');
@@ -28,7 +28,7 @@ const createAutobotsBatch = async (batchSize) => {
       phone: randomPhone,
       website: `${randomSuffix}.${baseUser.website}`,
     };
-    
+
     autobots.push(autobot);
 
     for (let j = 0; j < 10; j++) {
