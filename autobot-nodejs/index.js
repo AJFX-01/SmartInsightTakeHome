@@ -1,4 +1,5 @@
-
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import sequelize from './config/database.js';
 import apiRoutes from './routes/api.js';
@@ -7,6 +8,7 @@ import http from 'http';
 import Autobot from './models/Autobot.js';
 import cron from 'node-cron';
 import { processAutobotsInBatches } from "./jobs/createAutobots.js";
+
 
 const app = express();
 const server = http.createServer(app);
