@@ -15,4 +15,14 @@ const sequelize = new Sequelize(database, username, password, {
   logging: false,
 });
 
+
+sequelize.authenticate()
+  .then(() => {
+    console.log('Connection to the database has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+});
+
+
 export default sequelize;

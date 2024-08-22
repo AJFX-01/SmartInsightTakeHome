@@ -31,7 +31,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../config/database.js';
 import Post from './Post.js';
 
-const Comment = sequelize.define('Comment', {
+const Comment = sequelize.define('Comments', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
