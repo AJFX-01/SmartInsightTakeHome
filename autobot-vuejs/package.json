@@ -13,9 +13,11 @@
     "socket.io-client": "^4.7.5",
     "vue": "^3.2.13"
   },
+  "type": "module",
   "devDependencies": {
-    "@babel/core": "^7.12.16",
+    "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.12.16",
+    "@babel/preset-env": "^7.25.4",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
