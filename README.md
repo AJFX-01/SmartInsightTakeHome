@@ -13,18 +13,12 @@ Frontend: Located in the autobot-vuejs directory. Built with Vue.js, this part o
 Backend: Located in the autobot-nodejs directory. Built with Node.js and Express, this part of the project manages the database, real-time communication, and scheduled tasks for generating Autobots.
 Setup Instructions
 1. Clone the repository
-bash
-Copy code
 git clone https://github.com/AJFX-01/SmartInsightTakeHome.git
 cd autobot-project
 2. Navigate to Backend or Frontend
 For Backend:
-bash
-Copy code
 cd autobot-nodejs
 For Frontend:
-bash
-Copy code
 cd autobot-vuejs
 3. Follow the instructions in each respective directory's README to set up the backend and frontend.
 Links to Detailed Documentation
