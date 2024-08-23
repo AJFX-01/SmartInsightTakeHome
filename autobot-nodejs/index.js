@@ -28,6 +28,7 @@ sequelize.sync().then(() => {
       // Function to send Autobot count to the client
       const sendAutobotCount = async () => {
         const count = await Autobot.count();
+        console.log(`Sending autobotCount: ${count}`);
         socket.emit('autobotCount', count);
       };
   
@@ -47,6 +48,7 @@ sequelize.sync().then(() => {
       // After processing, emit the updated Autobot count to all connected clients
       const count = await Autobot.count();
       io.emit('autobotCount', count);
+      console.log(`Emitting autobotCount: ${count}`);
     });
   
     // Start the server
