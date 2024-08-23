@@ -3,15 +3,13 @@
 
 // createApp(App).mount('#app')
 
-import Vue from 'vue';
+import { createApp } from 'vue';
 import App from './App.vue';
 import socket from './socket';
 
-Vue.config.productionTip = false;
+const app = createApp(App);
 
-Vue.prototype.$socket = socket;
+app.config.globalProperties.$socket = socket;
 
-new Vue({
-  render: (h) => h(App),
-}).$mount('#app');
+app.mount('#app');
 
