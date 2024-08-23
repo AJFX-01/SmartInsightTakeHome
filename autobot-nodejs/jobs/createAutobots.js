@@ -4,7 +4,7 @@ import Post from '../models/Post.js';
 import Comment from '../models/Comment.js';
 import { v4 as uuidv4 } from 'uuid';
 
-const BATCH_SIZE = 100; // Adjust based on your server's capacity
+const BATCH_SIZE = 100;
 
 const createAutobotsBatch = async (batchSize) => {
     try {
@@ -15,6 +15,8 @@ const createAutobotsBatch = async (batchSize) => {
         let autobots = [];
         let posts = [];
         let comments = [];
+
+        const uniquePostTitles = new Set();
 
         for (let i = 0; i < batchSize; i++) {
             const baseUser = users[Math.floor(Math.random() * users.length)];
@@ -34,10 +36,16 @@ const createAutobotsBatch = async (batchSize) => {
             autobots.push(autobot);
 
             for (let j = 0; j < 10; j++) {
-                const postResponse = await axios.get('https://jsonplaceholder.typicode.com/posts');
-                const postData = postResponse.data[Math.floor(Math.random() * postResponse.data.length)];
+                let postData;
+                let postTitle;
+                do {
+                    const postResponse = await axios.get('https://jsonplaceholder.typicode.com/posts');
+                    postData = postResponse.data[Math.floor(Math.random() * postResponse.data.length)];
+                    postTitle = `${postData.title} - ${randomSuffix}`;
+                } while (uniquePostTitles.has(postTitle)); // Ensure unique title
 
-                let postTitle = `${postData.title} - ${randomSuffix}`;
+                uniquePostTitles.add(postTitle);
+
                 const post = {
                     title: postTitle,
                     body: postData.body,
@@ -82,7 +90,7 @@ const createAutobotsBatch = async (batchSize) => {
         await Comment.bulkCreate(comments);
     } catch (e) {
         console.error('Error in creating Autobots batch:', e);
-        throw new Error
+        throw e;
     }
 };
 
@@ -95,4 +103,3 @@ export const processAutobotsInBatches = async () => {
         await createAutobotsBatch(BATCH_SIZE);
     }
 };
-
