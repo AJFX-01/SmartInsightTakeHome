@@ -21,8 +21,8 @@ export default {
     },
     created() {
         this.fetchAutobots();
-        this.$socket.on('Autobots count', (count) => {
-            console.log('Autobot count:' ${count})
+        this.$socket.on('autoboCount', (count) => {
+            console.log(`Autobot count: ${count}`);
         });
     },
     methods: {
