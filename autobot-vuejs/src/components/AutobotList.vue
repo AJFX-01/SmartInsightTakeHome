@@ -2,25 +2,29 @@
   <div class="autobot-container">
     <h1>Autobot List</h1>
     <div v-if="loading" class="loading">Loading Autobots...</div>
+    
+    <div v-else-if="!loading" class="empty">
+      Total Autobots available : {{ autobotCount }}
+    </div>
+
     <div v-if="error" class="error">{{ error }}</div>
     <ul v-if="autobots.length > 0">
       <li v-for="autobot in autobots" :key="autobot.id">
         <strong>{{ autobot.name }}</strong> ({{ autobot.username }})
       </li>
     </ul>
-    <div v-else-if="!loading && autobots.length === 0" class="empty">
-      No Autobots available.
-    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, inject } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import api from "../api/axios";
+import socket from "../socket.js"
 
 const autobots = ref([]);
 const loading = ref(true);
 const error = ref(null);
+const autobotCount = ref(0);
 
 const fetchAutobots = async () => {
   try {
@@ -35,9 +39,13 @@ const fetchAutobots = async () => {
 
 onMounted(() => {
   fetchAutobots();
-  const socket = inject("$socket");
   socket.on("autobotCount", (count) => {
     console.log(`Autobot count: ${count}`);
+    autobotCount.value = count;
+  });
+
+  onUnmounted(() => {
+    socket.disconnect();
   });
 });
 </script>
@@ -54,7 +62,7 @@ onMounted(() => {
 
 .error {
   color: #dc3545;
-  font-size: 18px;
+  font-size: 13px;
 }
 
 .empty {
