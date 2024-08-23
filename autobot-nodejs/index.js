@@ -56,27 +56,3 @@ sequelize.sync().then(() => {
       console.log('Server is running on http://localhost:3000');
     });
 });
-// Sync Database
-// sequelize.sync().then(() => {
-//   console.log('Database synced');
-
-//   // Socket.io Setup
-//   io.on('connection', (socket) => {
-//     console.log('User connected');
-
-//     const sendAutobotCount = async () => {
-//       const count = await Autobot.count();
-//       socket.emit('autobotCount', count);
-//     };
-
-//     sendAutobotCount();
-
-//     socket.on('disconnect', () => {
-//       console.log('User disconnected');
-//     });
-//   });
-
-//   server.listen(3000, () => {
-//     console.log('Server is running on http://localhost:3000');
-//   });
-// });
