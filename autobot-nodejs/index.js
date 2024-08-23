@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 import sequelize from './config/database.js';
-import apiRoutes from './routes/api.js';
+import router from './routes/api.js';
 import { Server } from 'socket.io';
 import http from 'http';
 import Autobot from './models/Autobot.js';
@@ -14,7 +14,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-app.use('/api', apiRoutes);
+app.use('/api', router);
 
 
 

@@ -10,6 +10,7 @@ const createAutobotsBatch = async (batchSize) => {
     try {
         const userResponse = await axios.get('https://jsonplaceholder.typicode.com/users');
         const users = userResponse.data;
+        console.log(users);
 
         let autobots = [];
         let posts = [];

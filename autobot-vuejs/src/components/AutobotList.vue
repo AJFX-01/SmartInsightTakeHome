@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, inject } from "vue";
 import api from "../api/axios";
 
 const autobots = ref([]);
