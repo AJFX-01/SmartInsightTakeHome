@@ -29,7 +29,8 @@ const autobotCount = ref(0);
 const fetchAutobots = async () => {
   try {
     const response = await api.get("/autobots");
-    autobots.value = response.data;
+    autobots.value = response.data["data"];
+    console.log(autobots.value)
   } catch (err) {
     error.value = "Error fetching Autobots: " + err.message;
   } finally {
