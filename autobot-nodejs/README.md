@@ -1,5 +1,3 @@
-Here's a detailed and beautifully formatted README for the Node.js backend, including Markdown for enhanced readability:
-
 ---
 
 # 🚀 Autobot Node.js Backend
