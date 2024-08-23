@@ -48,6 +48,12 @@ cd autobot-project
 - [📘 Vue.js Frontend README](./autobot-vuejs/README.md)
 - [📗 Node.js Backend README](./autobot-nodejs/README.md)
 
+
+### 4. Documentation for the api.
+
+## 📚 Links to Detailed Documentation
+
+- [📘 Node.js Backend Api Documentation](./api-docs.md)
 ## 📜 License
 
 This project is licensed under the [MIT License](./LICENSE). See the LICENSE file for more details.
