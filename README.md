@@ -41,7 +41,7 @@ cd autobot-project
   cd autobot-vuejs
   ```
 
-### 3. Follow the instructions in each respective directory's README to set up the backend and frontend.
+### 3. Follow the instructions in each respective directory's README to set up the backend and frontend..
 
 ## 📚 Links to Detailed Documentation
 
